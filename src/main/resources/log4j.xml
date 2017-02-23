@@ -3,16 +3,16 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
     <appender name="TermAppender" class="org.apache.log4j.ConsoleAppender">
         <param name="Threshold" value="INFO"/>
-        <layout class="log.NicePatternLayout">
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
             <param name="ConversionPattern" value="%d %-7p [%8t] %c - %m%n"/>
         </layout>
     </appender>
 
     <appender name="LogFileAppender" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="c:\STC\lab-02-23-tomcat\application.log"/>
-        <layout class="org.apache.log4j.EnhancedPatternLayout">
-            <param name="ConversionPattern" value="%d|%8r|%-7p [%8t] %c - %m%n"/>
-        </layout>
+    <param name="File" value="c:\\STC\\lab-02-23-students-site\\application.log"/>
+    <layout class="org.apache.log4j.EnhancedPatternLayout">
+    <param name="ConversionPattern" value="%d|%8r|%-7p [%8t] %c - %m%n"/>
+    </layout>
     </appender>
 
     <root>
