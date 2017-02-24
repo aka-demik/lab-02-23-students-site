@@ -37,6 +37,9 @@
                         <td><c:out value="${item.email}"/></td>
                         <td><c:out value="${item.phone}"/></td>
                         <td><c:out value="${item.birthDate}"/></td>
+                        <td>
+                            <a class="btn btn-warning" href="${pageContext.servletContext.contextPath}/edit?id=${item.id}" role="button">Правка</a>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

@@ -24,6 +24,10 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+    <welcome-file-list>
+        <welcome-file>/login.jsp</welcome-file>
+    </welcome-file-list>
+    
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/</url-pattern>
@@ -43,4 +47,11 @@
         <url-pattern>/registration</url-pattern>
         <url-pattern>/registration/</url-pattern>
     </servlet-mapping>
+    
+    <listener>
+        <listener-class>controllers.listeners.ApplicationLoadListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>controllers.listeners.SessionListener</listener-class>
+    </listener>
 </web-app>
