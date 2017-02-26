@@ -5,11 +5,13 @@ import org.apache.log4j.Logger;
 import services.SuperUserService;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@WebServlet(urlPatterns = "/")
 public class LoginServlet extends HttpServlet {
     static private Logger logger = Logger.getLogger(LoginServlet.class);
 
@@ -25,7 +27,8 @@ public class LoginServlet extends HttpServlet {
 
         try {
             if (SuperUserService.authorize(login, password)) {
-                resp.sendRedirect(req.getServletContext().getContextPath() + "/list");
+                req.getSession().setAttribute("login", true);
+                resp.sendRedirect(req.getServletContext().getContextPath() + "/lectures");
             } else {
                 req.setAttribute("error", true);
                 req.getRequestDispatcher("/login.jsp").forward(req, resp);

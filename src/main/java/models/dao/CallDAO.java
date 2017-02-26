@@ -1,11 +1,13 @@
 package models.dao;
 
-import models.Call;
 import models.dao.exceptions.CallDAOException;
+import models.pojo.Call;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 
 public class CallDAO extends AbstractDAO<Call> {
+    private static Logger logger = Logger.getLogger(CallDAO.class);
 
     public CallDAO(Connection con) {
         super(con);

@@ -1,7 +1,7 @@
 package models.dao;
 
-import models.SuperUser;
 import models.dao.exceptions.SuperUserDAOException;
+import models.pojo.SuperUser;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;

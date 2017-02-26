@@ -1,5 +1,7 @@
 package controllers;
 
+import models.dao.CallReasonDAO;
+import models.dao.Connector;
 import models.dao.exceptions.PersistentException;
 import org.apache.log4j.Logger;
 import services.SuperUserService;
@@ -11,24 +13,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = {"/registration", "/registration/"})
-public class RegistrationServlet extends HttpServlet {
-    static private Logger logger = Logger.getLogger(RegistrationServlet.class);
+@WebServlet(urlPatterns = {"/lectures/edit", "/lectures/edit/"})
+public class LectureEditServlet extends HttpServlet {
+    private static Logger logger = Logger.getLogger(LecturesListServlet.class);
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/registration.jsp").forward(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String login = req.getParameter("login");
-        String password = req.getParameter("password");
-
         try {
-            SuperUserService.registerUser(login, password);
+            String sid = req.getParameter("id");
+            long id = Long.parseLong(sid);
+            SuperUserService.Lecture lecture = SuperUserService.getLectureByID(id);
+            if (lecture == null) {
+                resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+                return;
+            }
 
-            resp.sendRedirect(req.getServletContext().getContextPath() + "/list");
+            req.setAttribute("lecture", lecture);
+            req.setAttribute("lectures", new CallReasonDAO(Connector.get()).getAll());
+            req.getRequestDispatcher("/lecture-edit.jsp").forward(req, resp);
+
         } catch (PersistentException e) {
             req.setAttribute("error", "проблемы с СУБД");
             req.getRequestDispatcher("/error.jsp").forward(req, resp);

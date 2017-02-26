@@ -4,9 +4,11 @@ import org.apache.log4j.Logger;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
+@WebListener
 public class ApplicationLoadListener implements ServletContextListener {
-    Logger logger = Logger.getLogger(ApplicationLoadListener.class);
+    private static Logger logger = Logger.getLogger(ApplicationLoadListener.class);
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {

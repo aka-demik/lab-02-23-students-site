@@ -1,7 +1,7 @@
 package models.dao;
 
-import models.CallReason;
 import models.dao.exceptions.CallReasonDAOException;
+import models.pojo.CallReason;
 import org.apache.log4j.Logger;
 
 import java.sql.Connection;

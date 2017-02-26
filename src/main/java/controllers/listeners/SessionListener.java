@@ -2,13 +2,15 @@ package controllers.listeners;
 
 import org.apache.log4j.Logger;
 
+import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+@WebListener
 public class SessionListener implements HttpSessionListener, HttpSessionAttributeListener {
-    Logger logger = Logger.getLogger(SessionListener.class);
+    private static Logger logger = Logger.getLogger(SessionListener.class);
 
     @Override
     public void sessionCreated(HttpSessionEvent se) {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public abstract class AbstractDAO<T> {
-    Logger logger = Logger.getLogger(AbstractDAO.class);
+    private static Logger logger = Logger.getLogger(AbstractDAO.class);
 
     protected Connection con;
 

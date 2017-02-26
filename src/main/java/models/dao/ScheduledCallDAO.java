@@ -1,18 +1,18 @@
 package models.dao;
 
-import models.ScheduledCall;
 import models.dao.exceptions.PersistentException;
 import models.dao.exceptions.ScheduledCallDAOException;
+import models.pojo.ScheduledCall;
 import org.apache.log4j.Logger;
 
 import java.sql.*;
 
-public class ScheduledCallDataObject extends AbstractDAO<ScheduledCall> {
-    private static Logger logger = Logger.getLogger(ScheduledCallDataObject.class);
+public class ScheduledCallDAO extends AbstractDAO<ScheduledCall> {
+    private static Logger logger = Logger.getLogger(ScheduledCallDAO.class);
 
     private CallDAO callDataObject;
 
-    public ScheduledCallDataObject(Connection con) {
+    public ScheduledCallDAO(Connection con) {
         super(con);
         callDataObject = new CallDAO(con);
     }

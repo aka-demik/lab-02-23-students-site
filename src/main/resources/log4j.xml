@@ -9,10 +9,10 @@
     </appender>
 
     <appender name="LogFileAppender" class="org.apache.log4j.RollingFileAppender">
-    <param name="File" value="c:\\STC\\lab-02-23-students-site\\application.log"/>
-    <layout class="org.apache.log4j.EnhancedPatternLayout">
-    <param name="ConversionPattern" value="%d|%8r|%-7p [%8t] %c - %m%n"/>
-    </layout>
+        <param name="File" value="c:\\STC\\lab-02-23-students-site\\application.log"/>
+        <layout class="org.apache.log4j.EnhancedPatternLayout">
+            <param name="ConversionPattern" value="%d|%8r|%-7p [%8t] %c - %m%n"/>
+        </layout>
     </appender>
 
     <root>

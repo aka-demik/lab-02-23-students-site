@@ -1,8 +1,4 @@
-package models;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+package models.pojo;
 
 public class ScheduledCall {
 

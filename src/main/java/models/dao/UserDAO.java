@@ -2,10 +2,12 @@ package models.dao;
 
 import models.dao.exceptions.UserDAOException;
 import models.pojo.User;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 
 public class UserDAO extends AbstractDAO<User> {
+    private static Logger logger = Logger.getLogger(UserDAO.class);
 
     public UserDAO(Connection con) {
         super(con);
