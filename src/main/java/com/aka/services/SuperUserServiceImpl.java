@@ -7,6 +7,7 @@ import com.aka.dao.exceptions.PersistentException;
 import com.aka.models.CallReason;
 import com.aka.models.ScheduledLecture;
 import com.aka.models.SuperUser;
+import com.aka.services.interfaces.SuperUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +37,13 @@ public class SuperUserServiceImpl implements SuperUserService {
 
     @Override
     public boolean authorize(String login, String password) throws PersistentException {
-        return superUserDAO.getByLogin(login, password) != null;
+        SuperUser superUser = superUserDAO.getByLogin(login);
+        return superUser != null && superUser.getUserPassword().equals(password);
+    }
+
+    @Override
+    public SuperUser getByUserName(String username) throws PersistentException {
+        return superUserDAO.getByLogin(username);
     }
 
     @Override

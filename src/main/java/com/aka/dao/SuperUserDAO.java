@@ -9,5 +9,5 @@ public interface SuperUserDAO {
 
     boolean deleteByID(long id) throws PersistentException;
 
-    SuperUser getByLogin(String login, String pass) throws SuperUserDAOException;
+    SuperUser getByLogin(String login) throws SuperUserDAOException;
 }

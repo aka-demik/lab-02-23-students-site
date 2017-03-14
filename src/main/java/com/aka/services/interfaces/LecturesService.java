@@ -1,5 +1,6 @@
-package com.aka.services;
+package com.aka.services.interfaces;
 
+import com.aka.services.SuperUserServiceImpl;
 import com.aka.services.exceptions.ServiceException;
 
 import java.util.Collection;

@@ -2,7 +2,7 @@ package com.aka.controllers;
 
 import com.aka.dao.CallReasonDAO;
 import com.aka.dao.exceptions.PersistentException;
-import com.aka.services.SuperUserService;
+import com.aka.services.interfaces.SuperUserService;
 import com.aka.services.SuperUserServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +18,7 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/lectures/edit", "/lectures/edit/"})
 public class LectureEditServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(LecturesListServlet.class);
+    private static Logger logger = Logger.getLogger(LecturesListController.class);
     private SuperUserService superUserService;
     private CallReasonDAO callReasonDAO;
 

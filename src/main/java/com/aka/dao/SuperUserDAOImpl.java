@@ -109,11 +109,10 @@ public class SuperUserDAOImpl extends AbstractDAO<SuperUser> implements SuperUse
     }
 
     @Override
-    public SuperUser getByLogin(String login, String pass) throws SuperUserDAOException {
+    public SuperUser getByLogin(String login) throws SuperUserDAOException {
         try (PreparedStatement statement = con.prepareStatement(getSelectAllSQL() +
-                " WHERE user_login = ? AND user_password = ?")) {
+                " WHERE user_login = ?")) {
             statement.setString(1, login);
-            statement.setString(2, pass);
 
             try (ResultSet result = statement.executeQuery()) {
                 if (result.next()) {
