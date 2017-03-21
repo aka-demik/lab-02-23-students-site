@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class RegistrationServlet {
-    static private Logger logger = Logger.getLogger(RegistrationServlet.class);
+public class RegistrationController {
+    static private Logger logger = Logger.getLogger(RegistrationController.class);
     private UserService userService;
 
     @Autowired

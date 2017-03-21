@@ -13,7 +13,7 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = {"/lectures/edit", "/lectures/edit/"})
 public class LectureEditServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(LecturesListServlet.class);
+    private static Logger logger = Logger.getLogger(LecturesListController.class);
 //    private SuperUserService superUserService;
 //    private CallReasonDAO callReasonDAO;
 
