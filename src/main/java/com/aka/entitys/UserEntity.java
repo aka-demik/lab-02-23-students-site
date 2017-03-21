@@ -12,8 +12,8 @@ public class UserEntity {
 
     @Id
     @Column(name = "id")
-    @SequenceGenerator(name="identifier", sequenceName="users_id_seq", allocationSize=1)
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier")
+    @SequenceGenerator(name = "identifier", sequenceName = "users_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "identifier")
     public Long getId() {
         return id;
     }

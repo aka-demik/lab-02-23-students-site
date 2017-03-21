@@ -26,7 +26,8 @@
                 </div>
                 <div class="form-group">
                     <label for="password">Пароль</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Пароль" required>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Пароль"
+                           required>
                 </div>
                 <div class="pull-right">
                     <a href="${pageContext.servletContext.contextPath}/">Вход</a>
