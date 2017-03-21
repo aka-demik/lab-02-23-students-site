@@ -17,12 +17,16 @@
         <div class="panel-body">
             <form action="${pageContext.servletContext.contextPath}/registration" method="post">
                 <div class="form-group">
-                    <label for="login">Имя пользователя</label>
-                    <input type="text" class="form-control" id="login" name="login" placeholder="Имя пользователя">
+                    <label for="login">Имя</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Имя" required>
+                </div>
+                <div class="form-group">
+                    <label for="login">Почта</label>
+                    <input type="email" class="form-control" id="login" name="login" placeholder="Почта" required>
                 </div>
                 <div class="form-group">
                     <label for="password">Пароль</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Пароль">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Пароль" required>
                 </div>
                 <div class="pull-right">
                     <a href="${pageContext.servletContext.contextPath}/">Вход</a>

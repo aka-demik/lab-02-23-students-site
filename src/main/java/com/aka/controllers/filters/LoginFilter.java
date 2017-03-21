@@ -20,6 +20,7 @@ public class LoginFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         HttpSession session = req.getSession(false);
+        request.setCharacterEncoding("UTF-8");
         String loginURI = req.getContextPath() + "/login";
 
         boolean loggedIn = session != null && session.getAttribute("logged") != null;

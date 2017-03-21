@@ -17,9 +17,8 @@ public class UserServiceImpl implements UserService {
         this.userDAO = userDAO;
     }
 
-    public Collection<UserEntity> getUsers() {
-        return null;
-//        return userDAO.getAll();
+    public Iterable<UserEntity> getUsers() {
+        return userDAO.findAll();
     }
 
     public UserEntity authorizeUser(String mail, String pass) {
@@ -29,5 +28,14 @@ public class UserServiceImpl implements UserService {
         } else {
             return null;
         }
+    }
+
+    @Override
+    public void registerUser(String login, String name, String password) {
+        UserEntity user = new UserEntity();
+        user.setMail(login);
+        user.setName(name);
+        user.setPassword(password);
+        userDAO.save(user);
     }
 }

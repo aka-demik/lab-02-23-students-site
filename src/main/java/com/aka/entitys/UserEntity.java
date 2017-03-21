@@ -2,25 +2,23 @@ package com.aka.entitys;
 
 import javax.persistence.*;
 
-/**
- * Created by mail4 on 21.03.2017.
- */
 @Entity
 @Table(name = "users", schema = "public", catalog = "newdb")
 public class UserEntity {
-    private long id;
+    private Long id;
     private String name;
     private String mail;
     private String password;
 
     @Id
     @Column(name = "id")
-    @GeneratedValue
-    public long getId() {
+    @SequenceGenerator(name="identifier", sequenceName="users_id_seq", allocationSize=1)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="identifier")
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

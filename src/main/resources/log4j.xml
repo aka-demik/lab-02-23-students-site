@@ -7,14 +7,14 @@
         </layout>
     </appender>
 
-    <root>
-        <level value="WARN"/>
-        <appender-ref ref="TermAppender"/>
-    </root>
-
     <logger name="com.aka" additivity="false">
         <level value="DEBUG"/>
         <appender-ref ref="TermAppender"/>
     </logger>
+
+    <root>
+        <level value="WARN"/>
+        <appender-ref ref="TermAppender"/>
+    </root>
 
 </log4j:configuration>
