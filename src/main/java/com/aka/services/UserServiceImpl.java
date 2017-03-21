@@ -1,8 +1,7 @@
 package com.aka.services;
 
-import com.aka.dao.UserDAO;
-import com.aka.dao.exceptions.PersistentException;
-import com.aka.models.User;
+import com.aka.dao.UserEntityRepository;
+import com.aka.entitys.UserEntity;
 import com.aka.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,14 +10,24 @@ import java.util.Collection;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private UserDAO userDAO;
+    private UserEntityRepository userDAO;
 
     @Autowired()
-    public void setUserDAO(UserDAO userDAO) {
+    public void setUserDAO(UserEntityRepository userDAO) {
         this.userDAO = userDAO;
     }
 
-    public Collection<User> getUsers() throws PersistentException {
-        return userDAO.getAll();
+    public Collection<UserEntity> getUsers() {
+        return null;
+//        return userDAO.getAll();
+    }
+
+    public UserEntity authorizeUser(String mail, String pass) {
+        UserEntity user = userDAO.findByMail(mail);
+        if (user != null && user.getPassword().equals(pass)) {
+            return user;
+        } else {
+            return null;
+        }
     }
 }

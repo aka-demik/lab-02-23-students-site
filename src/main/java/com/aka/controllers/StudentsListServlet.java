@@ -1,6 +1,5 @@
 package com.aka.controllers;
 
-import com.aka.dao.exceptions.PersistentException;
 import com.aka.services.interfaces.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +34,9 @@ public class StudentsListServlet extends HttpServlet {
         try {
             req.setAttribute("list", userService.getUsers());
             req.getRequestDispatcher("/students-list.jsp").forward(req, resp);
-        } catch (PersistentException e) {
-            req.setAttribute("error", "проблемы с СУБД");
-            req.getRequestDispatcher("/error.jsp").forward(req, resp);
+//        } catch (PersistentException e) {
+//            req.setAttribute("error", "проблемы с СУБД");
+//            req.getRequestDispatcher("/error.jsp").forward(req, resp);
         } catch (Exception e) {
             logger.error("", e);
             req.getRequestDispatcher("/error.jsp").forward(req, resp);

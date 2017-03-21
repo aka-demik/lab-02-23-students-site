@@ -1,10 +1,10 @@
 package com.aka.services.interfaces;
 
-import com.aka.dao.exceptions.PersistentException;
-import com.aka.models.User;
+import com.aka.entitys.UserEntity;
 
 import java.util.Collection;
 
 public interface UserService {
-    Collection<User> getUsers() throws PersistentException;
+    Collection<UserEntity> getUsers();
+    UserEntity authorizeUser(String mail, String pass);
 }

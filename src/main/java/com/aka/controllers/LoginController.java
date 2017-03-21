@@ -1,7 +1,6 @@
 package com.aka.controllers;
 
-import com.aka.dao.exceptions.PersistentException;
-import com.aka.services.interfaces.SuperUserService;
+import com.aka.services.interfaces.UserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,11 +13,11 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
     static private Logger logger = Logger.getLogger(LoginController.class);
 
-    private SuperUserService superUserService;
+    private UserService userService;
 
     @Autowired
-    public void setSuperUserService(SuperUserService superUserService) {
-        this.superUserService = superUserService;
+    public void setSuperUserService(UserService userService) {
+        this.userService = userService;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -40,7 +39,7 @@ public class LoginController {
 
         try {
             if (!logged) {
-                logged = superUserService.authorize(login, password);
+                logged = userService.authorizeUser(login, password) != null;
                 if (logged) {
                     session.setAttribute("logged", true);
                 }
@@ -52,7 +51,7 @@ public class LoginController {
                 model.addAttribute("error", true);
                 return "login";
             }
-        } catch (PersistentException e) {
+        } catch (Exception e) {
             model.addAttribute("error", "проблемы с СУБД");
             return "error";
         }

@@ -1,6 +1,5 @@
 package com.aka.controllers;
 
-import com.aka.services.interfaces.LecturesService;
 import com.aka.services.exceptions.ServiceException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,12 +16,12 @@ import java.io.IOException;
 @WebServlet(name = "lecturesList", urlPatterns = {"/lectures", "/lectures/"})
 public class LecturesListServlet extends HttpServlet {
     private static Logger logger = Logger.getLogger(LecturesListServlet.class);
-    private LecturesService lecturesService;
+//    private LecturesService lecturesService;
 
-    @Autowired
-    public void setLecturesService(LecturesService lecturesService) {
-        this.lecturesService = lecturesService;
-    }
+//    @Autowired
+//    public void setLecturesService(LecturesService lecturesService) {
+//        this.lecturesService = lecturesService;
+//    }
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -32,18 +31,18 @@ public class LecturesListServlet extends HttpServlet {
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
-            String sid = req.getParameter("id");
-            long l = Long.parseLong(sid);
-            lecturesService.deleteScheduledCall(l);
-            resp.sendRedirect(req.getContextPath() + "/lectures");
-        } catch (ServiceException e) {
-            req.setAttribute("error", "проблемы с СУБД");
-            req.getRequestDispatcher("/error.jsp").forward(req, resp);
-        } catch (Exception e) {
-            logger.error("", e);
-            req.getRequestDispatcher("/error.jsp").forward(req, resp);
-        }
+//        try {
+//            String sid = req.getParameter("id");
+//            long l = Long.parseLong(sid);
+//            lecturesService.deleteScheduledCall(l);
+//            resp.sendRedirect(req.getContextPath() + "/lectures");
+//        } catch (ServiceException e) {
+//            req.setAttribute("error", "проблемы с СУБД");
+//            req.getRequestDispatcher("/error.jsp").forward(req, resp);
+//        } catch (Exception e) {
+//            logger.error("", e);
+//            req.getRequestDispatcher("/error.jsp").forward(req, resp);
+//        }
     }
 
     @Override
@@ -56,16 +55,16 @@ public class LecturesListServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        try {
-            req.setAttribute("list", lecturesService.getLectures());
-            req.getRequestDispatcher("/lectures-list.jsp").forward(req, resp);
-        } catch (ServiceException e) {
-            req.setAttribute("error", "проблемы с СУБД");
-            req.getRequestDispatcher("/error.jsp").forward(req, resp);
-        } catch (Exception e) {
-            logger.error("", e);
-            req.getRequestDispatcher("/error.jsp").forward(req, resp);
-        }
+//        try {
+//            req.setAttribute("list", lecturesService.getLectures());
+//            req.getRequestDispatcher("/lectures-list.jsp").forward(req, resp);
+//        } catch (ServiceException e) {
+//            req.setAttribute("error", "проблемы с СУБД");
+//            req.getRequestDispatcher("/error.jsp").forward(req, resp);
+//        } catch (Exception e) {
+//            logger.error("", e);
+//            req.getRequestDispatcher("/error.jsp").forward(req, resp);
+//        }
     }
 }
 

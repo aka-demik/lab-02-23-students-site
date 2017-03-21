@@ -1,7 +1,5 @@
 package com.aka.controllers;
 
-import com.aka.dao.exceptions.PersistentException;
-import com.aka.services.interfaces.SuperUserService;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
@@ -17,7 +15,7 @@ import java.io.IOException;
 @WebServlet(urlPatterns = {"/registration", "/registration/"})
 public class RegistrationServlet extends HttpServlet {
     static private Logger logger = Logger.getLogger(RegistrationServlet.class);
-    private SuperUserService superUserService;
+//    private SuperUserService superUserService;
 
     @Override
     public void init(ServletConfig config) throws ServletException {
@@ -25,10 +23,10 @@ public class RegistrationServlet extends HttpServlet {
         SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, config.getServletContext());
     }
 
-    @Autowired
-    public void setSuperUserService(SuperUserService superUserService) {
-        this.superUserService = superUserService;
-    }
+//    @Autowired
+//    public void setSuperUserService(SuperUserService superUserService) {
+//        this.superUserService = superUserService;
+//    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,19 +35,19 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String login = req.getParameter("login");
-        String password = req.getParameter("password");
-
-        try {
-            superUserService.registerUser(login, password);
-
-            resp.sendRedirect(req.getServletContext().getContextPath() + "/list");
-        } catch (PersistentException e) {
-            req.setAttribute("error", "проблемы с СУБД");
-            req.getRequestDispatcher("/error.jsp").forward(req, resp);
-        } catch (Exception e) {
-            logger.error("", e);
-            req.getRequestDispatcher("/error.jsp").forward(req, resp);
-        }
+//        String login = req.getParameter("login");
+//        String password = req.getParameter("password");
+//
+//        try {
+//            superUserService.registerUser(login, password);
+//
+//            resp.sendRedirect(req.getServletContext().getContextPath() + "/list");
+//        } catch (PersistentException e) {
+//            req.setAttribute("error", "проблемы с СУБД");
+//            req.getRequestDispatcher("/error.jsp").forward(req, resp);
+//        } catch (Exception e) {
+//            logger.error("", e);
+//            req.getRequestDispatcher("/error.jsp").forward(req, resp);
+//        }
     }
 }

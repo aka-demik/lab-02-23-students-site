@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                                 http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+             version="1.0">
+
+    <persistence-unit name="students" transaction-type="RESOURCE_LOCAL">
+        <class>com.aka.entitys.LecturesEntity</class>
+        <class>com.aka.entitys.StudentEntity</class>
+        <class>com.aka.entitys.UserEntity</class>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL95Dialect"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+            <property name="c3p0.min_size" value="3"/>
+            <property name="c3p0.acquire_increment" value="1"/>
+            <property name="c3p0.max_size" value="100"/>
+
+            <property name="connection.url" value="jdbc:postgresql://localhost:5432/newdb"/>
+            <property name="connection.driver_class" value="org.postgresql.Driver"/>
+            <property name="connection.username" value="postgres"/>
+            <property name="connection.password" value="sergtsop"/>
+            <property name="toplink.jdbc.url" value="jdbc:postgresql://localhost:5432/newdb"/>
+            <property name="toplink.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:postgresql://localhost:5432/newdb"/>
+            <property name="openjpa.ConnectionDriverName" value="org.postgresql.Driver"/>
+            <property name="eclipselink.jdbc.url" value="jdbc:postgresql://localhost:5432/newdb"/>
+            <property name="eclipselink.jdbc.driver" value="org.postgresql.Driver"/>
+        </properties>
+    </persistence-unit>
+</persistence>
