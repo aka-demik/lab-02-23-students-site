@@ -3,6 +3,7 @@ package com.aka.services;
 import com.aka.dao.UserDAO;
 import com.aka.dao.exceptions.PersistentException;
 import com.aka.models.User;
+import com.aka.services.interfaces.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

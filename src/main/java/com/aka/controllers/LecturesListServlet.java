@@ -1,6 +1,6 @@
 package com.aka.controllers;
 
-import com.aka.services.LecturesService;
+import com.aka.services.interfaces.LecturesService;
 import com.aka.services.exceptions.ServiceException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

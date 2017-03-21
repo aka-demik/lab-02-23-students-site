@@ -2,7 +2,7 @@ package com.aka.controllers;
 
 import com.aka.dao.CallReasonDAO;
 import com.aka.dao.exceptions.PersistentException;
-import com.aka.services.SuperUserService;
+import com.aka.services.interfaces.SuperUserService;
 import com.aka.services.SuperUserServiceImpl;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
